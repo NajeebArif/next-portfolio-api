@@ -2,8 +2,9 @@
 const express = require('express')
 const router = express.Router();
 
-const { getPortfolios } = require('../controllers/portfolioController')
+const { getPortfolios, getPortfolioById } = require('../controllers/portfolioController')
 
 router.get('', getPortfolios)
+router.get('/:id', getPortfolioById)
 
 module.exports = router;
