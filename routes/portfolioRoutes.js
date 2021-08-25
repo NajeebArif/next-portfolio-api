@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express.Router();
 
-const { getPortfolios } = require('../controllers/portfolio')
+const { getPortfolios } = require('../controllers/portfolioController')
 
 router.get('', getPortfolios)
 

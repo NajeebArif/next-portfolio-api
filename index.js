@@ -6,7 +6,7 @@ const PORT = parseInt(process.env.PORT, 10) || 3001;
 
 server.use(express.json());
 
-server.use('/api/v1/portfolios', require('./routes/portfolio'));
+server.use('/api/v1/portfolios', require('./routes/portfolioRoutes'));
 
 server.listen(PORT, err => {
     if (err)
