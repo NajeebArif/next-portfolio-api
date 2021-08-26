@@ -20,8 +20,10 @@ exports.createPortfolio = async (req, res) => {
     const portfolioData = req.body;
     try{
         const portfolio = new Portfolio(portfolioData);
+        portfolio.userId = 'XXXXX'
         const newPortfolio = await portfolio.save();
+        return res.json(newPortfolio)
     }catch(e){
-        return res.status(422).send(err.message);
+        return res.status(422).send(e.message);
     }
 }
