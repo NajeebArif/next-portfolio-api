@@ -11,6 +11,7 @@ const portfolioSchema = new Schema({
     jobTitle: {type: String, required: true},
     description: {type: String, required: true},
     startDate: {type: Date, required: true},
+    userId: {type: String, required:true},
     endDate: {type: Date},
     createdAt: {type: Date, default: Date.now},
 })
