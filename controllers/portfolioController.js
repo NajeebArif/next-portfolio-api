@@ -17,7 +17,11 @@ exports.getPortfolioById = async (req, res) => {
 }
 
 exports.createPortfolio = async (req, res) => {
-    const data = req.body;
-    console.log(data);
-    return res.json({ message: 'Creating Portfolio...' });
+    const portfolioData = req.body;
+    try{
+        const portfolio = new Portfolio(portfolioData);
+        const newPortfolio = await portfolio.save();
+    }catch(e){
+        return res.status(422).send(err.message);
+    }
 }
