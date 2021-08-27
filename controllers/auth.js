@@ -1,5 +1,6 @@
 const jwt = require('express-jwt');
 const jwksRsa = require('jwks-rsa');
+const config = require('../config/dev');
 
 // Authentication middleware
 // This middleware will check access token in authorization headers
@@ -19,8 +20,11 @@ exports.checkJwt = jwt({
 
 exports.checkRole = role => (req, res, next) => {
     const user = req.user;
-
-    if (user && user[config.AUTH0_NAMESPACE + '/roles'].includes(role)) {
+    if(role==='admin'){
+        role = 'create:portfolios'
+    }
+    console.log(user)
+    if (user && user['scope'].includes(role)) {
         next();
     } else {
         return res.status(401).send('You are not authorized to access this resource!')
