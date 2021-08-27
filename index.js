@@ -12,6 +12,7 @@ async function runServer() {
 
     server.use(express.json());
     server.use('/api/v1/portfolios', require('./routes/portfolioRoutes'));
+    server.use('/api/v1/blogs', require('./routes/blogsRoutes'));
 
     server.listen(PORT, err => {
         if (err)
