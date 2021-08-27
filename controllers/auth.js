@@ -23,7 +23,6 @@ exports.checkRole = role => (req, res, next) => {
     if(role==='admin'){
         role = 'create:portfolios'
     }
-    console.log(user)
     if (user && user['scope'].includes(role)) {
         next();
     } else {
